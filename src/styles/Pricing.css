@@ -1,0 +1,275 @@
+/* Pricing.css - Styles for the Pricing section */
+
+.pricing-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #f9fafb;
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.pricing-toggle span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.pricing-toggle span.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Custom Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e5e7eb;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+
+.discount-badge {
+  position: absolute;
+  right: -80px;
+  top: -2px;
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.pricing-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.popular {
+  border: 2px solid #6366f1;
+  transform: scale(1.05);
+}
+
+.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  padding: 5px 15px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pricing-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.pricing-price {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  height: 70px;
+}
+
+.price {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.price.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  vertical-align: top;
+  margin-right: 2px;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.period {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.pricing-features li {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+  color: #4b5563;
+}
+
+.pricing-features li i {
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+.pricing-features li.disabled {
+  color: #9ca3af;
+}
+
+.pricing-features li i.fa-check {
+  color: #10b981;
+}
+
+.pricing-features li i.fa-times {
+  color: #ef4444;
+}
+
+.pricing-card .btn {
+  width: 100%;
+}
+
+.pricing-note {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.pricing-note a {
+  color: #6366f1;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pricing-card.popular {
+    grid-column: span 2;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-card {
+    padding: 30px 25px;
+  }
+  
+  .pricing-card.popular {
+    grid-column: auto;
+    transform: scale(1);
+  }
+  
+  .pricing-card.popular:hover {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-toggle {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .discount-badge {
+    position: static;
+    margin-top: 10px;
+  }
+}

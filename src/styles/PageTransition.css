@@ -1,0 +1,116 @@
+/* PageTransition.css - Loading screen and animation styles */
+
+#page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111827;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#page-transition-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#page-transition-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.light-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(100px, -100px);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+}
+
+.logo-animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.logo-animation-container.complete {
+  transform: translateY(-20px);
+}
+
+.intro-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loading-bar {
+  width: 240px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
