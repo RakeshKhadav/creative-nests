@@ -11,11 +11,19 @@
   margin-bottom: 50px;
   position: relative;
   padding: 10px 0 50px;
+  max-width: 100%;
 }
 
 .blog-swiper {
   width: 100%;
   overflow: visible;
+}
+
+.blog-swiper .swiper-slide {
+  width: calc(33.333% - 20px) !important;
+  margin-right: 30px;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .blog-swiper .swiper-pagination {
@@ -428,6 +436,10 @@
     gap: 25px;
   }
   
+  .blog-swiper .swiper-slide {
+    width: calc(50% - 15px) !important; /* Show 2 blogs per view on tablets */
+  }
+  
   .modal-title {
     font-size: 1.6rem;
   }
@@ -519,6 +531,10 @@
     gap: 25px;
     max-width: 450px; /* Limit max width on small screens for better readability */
     margin: 0 auto;
+  }
+  
+  .blog-swiper .swiper-slide {
+    width: 100% !important; /* Full width slide on small mobiles */
   }
   
   .blog-image {
