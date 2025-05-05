@@ -32,13 +32,65 @@
   color: #ffffff;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+/* Swiper Container Styles */
+.portfolio-swiper-container {
   margin-bottom: 60px;
+  position: relative;
+  padding: 10px 0 50px;
 }
 
+.portfolio-swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.portfolio-swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.portfolio-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.portfolio-swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  width: 25px;
+  border-radius: 5px;
+}
+
+.portfolio-swiper .swiper-button-next,
+.portfolio-swiper .swiper-button-prev {
+  color: #6366f1;
+  background: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.portfolio-swiper .swiper-button-next:hover,
+.portfolio-swiper .swiper-button-prev:hover {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+}
+
+.portfolio-swiper .swiper-button-next:after,
+.portfolio-swiper .swiper-button-prev:after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.portfolio-slide {
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Original portfolio item styles - still needed */
 .portfolio-item {
   position: relative;
   border-radius: 10px;
@@ -162,6 +214,18 @@
     padding: 8px 16px;
     font-size: 0.9rem;
   }
+  
+  /* Adjust swiper for tablets */
+  .portfolio-swiper .swiper-button-next,
+  .portfolio-swiper .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .portfolio-swiper .swiper-button-next:after,
+  .portfolio-swiper .swiper-button-prev:after {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -209,6 +273,23 @@
     max-width: 80%;
     margin: 0 auto;
   }
+  
+  /* Adjust swiper navigation for smaller screens */
+  .portfolio-swiper .swiper-button-next,
+  .portfolio-swiper .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    display: none;
+  }
+  
+  .portfolio-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .portfolio-swiper .swiper-pagination-bullet-active {
+    width: 20px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -248,5 +329,10 @@
   .portfolio-content .btn {
     padding: 6px 12px;
     font-size: 0.85rem;
+  }
+  
+  /* Make swiper controls more touch-friendly */
+  .portfolio-swiper-container {
+    padding: 5px 0 40px;
   }
 }

@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/Portfolio.css';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// Import required modules
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
 import project1 from '../assets/images/portfolio/project-1.jpg';
 import project2 from '../assets/images/portfolio/project-2.jpg';
 import project3 from '../assets/images/portfolio/project-3.jpg';
@@ -110,25 +119,52 @@ const Portfolio = () => {
                     </button>
                 </div>
 
-                <div className="portfolio-grid" data-animation="fade-up">
-                    {filteredItems.map(item => (
-                        <div
-                            key={item.id}
-                            className="portfolio-item"
-                            data-category={item.category}
-                        >
-                            <div className="portfolio-image">
-                                <img src={item.image} alt={item.title} />
-                                <div className="portfolio-overlay">
-                                    <div className="portfolio-content">
-                                        <span className="portfolio-category">{item.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
-                                        <h3 className="portfolio-title">{item.title}</h3>
-                                        <p className="portfolio-description">{item.description}</p>
+                <div className="portfolio-swiper-container" data-animation="fade-up">
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation, Autoplay]}
+                        autoplay={{
+                            delay: 2000,
+                            disableOnInteraction: false,
+                        }}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 30,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            },
+                        }}
+                        className="portfolio-swiper"
+                    >
+                        {filteredItems.map(item => (
+                            <SwiperSlide key={item.id} className="portfolio-slide">
+                                <div className="portfolio-item" data-category={item.category}>
+                                    <div className="portfolio-image">
+                                        <img src={item.image} alt={item.title} />
+                                        <div className="portfolio-overlay">
+                                            <div className="portfolio-content">
+                                                <span className="portfolio-category">{item.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                                                <h3 className="portfolio-title">{item.title}</h3>
+                                                <p className="portfolio-description">{item.description}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    ))}
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
 
                 <div className="services-cta" data-animation="fade-up">

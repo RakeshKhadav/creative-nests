@@ -6,6 +6,153 @@
   background-color: #ffffff;
 }
 
+/* Swiper Container Styles */
+.blog-swiper-container {
+  margin-bottom: 50px;
+  position: relative;
+  padding: 10px 0 50px;
+}
+
+.blog-swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.blog-swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.blog-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.blog-swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  width: 25px;
+  border-radius: 5px;
+}
+
+.blog-swiper .swiper-button-next,
+.blog-swiper .swiper-button-prev {
+  color: #6366f1;
+  background: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.blog-swiper .swiper-button-next:hover,
+.blog-swiper .swiper-button-prev:hover {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+}
+
+.blog-swiper .swiper-button-next:after,
+.blog-swiper .swiper-button-prev:after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.blog-slide {
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Featured Articles Card Effect */
+.featured-blog-container {
+  margin: 60px 0;
+  position: relative;
+  padding: 10px 0 50px;
+  max-width: 350px;
+  margin: 50px auto;
+}
+
+.featured-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featured-header h3 {
+  font-size: 1.5rem;
+  color: #111827;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.featured-header h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: 2px;
+}
+
+.featured-swiper {
+  width: 100%;
+  height: 300px;
+}
+
+.featured-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+  transform: scale(1.05);
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  color: #ffffff;
+}
+
+.featured-overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.featured-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Original blog card styles */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -284,6 +431,22 @@
   .modal-title {
     font-size: 1.6rem;
   }
+  
+  /* Adjust swiper for tablets */
+  .blog-swiper .swiper-button-next,
+  .blog-swiper .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .blog-swiper .swiper-button-next:after,
+  .blog-swiper .swiper-button-prev:after {
+    font-size: 16px;
+  }
+  
+  .featured-blog-container {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -330,6 +493,23 @@
   
   .modal-category, .modal-date {
     margin-right: 0;
+  }
+  
+  /* Adjust swiper navigation for smaller screens */
+  .blog-swiper .swiper-button-next,
+  .blog-swiper .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    display: none;
+  }
+  
+  .blog-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .blog-swiper .swiper-pagination-bullet-active {
+    width: 20px;
   }
 }
 
@@ -385,5 +565,19 @@
   .modal-text h3 {
     font-size: 1.3rem;
     margin: 20px 0 12px;
+  }
+  
+  /* Make swiper controls more touch-friendly */
+  .blog-swiper-container {
+    padding: 5px 0 40px;
+  }
+  
+  .featured-blog-container {
+    margin: 40px auto;
+    height: 250px;
+  }
+  
+  .featured-swiper {
+    height: 250px;
   }
 }

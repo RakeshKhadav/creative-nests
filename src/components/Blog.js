@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/Blog.css';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-cards';
+// Import required modules
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
 import blog1 from '../assets/images/blog/blog-1.jpg';
 import blog2 from '../assets/images/blog/blog-2.jpg';
 import blog3 from '../assets/images/blog/blog-3.jpg';
@@ -199,23 +209,54 @@ const Blog = () => {
           <p className="section-subtitle">Stay updated with our latest thoughts on design, development, and digital marketing.</p>
         </div>
         
-        <div className="blog-grid" data-animation="fade-up">
-          {blogPosts.map(blog => (
-            <div key={blog.id} className="blog-card">
-              <div className="blog-image">
-                <img src={blog.image} alt={blog.title} />
-              </div>
-              <div className="blog-content">
-                <span className="blog-category">{blog.category}</span>
-                <h3 className="blog-title">{blog.title}</h3>
-                <div className="blog-meta">
-                  <span className="blog-date">{blog.date}</span>
-                  <span className="blog-author" dangerouslySetInnerHTML={{ __html: blog.author }}></span>
+        <div className="blog-swiper-container" data-animation="fade-up">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation, Autoplay]}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            className="blog-swiper"
+          >
+            {blogPosts.map(blog => (
+              <SwiperSlide key={blog.id} className="blog-slide">
+                <div className="blog-card">
+                  <div className="blog-image">
+                    <img src={blog.image} alt={blog.title} />
+                  </div>
+                  <div className="blog-content">
+                    <span className="blog-category">{blog.category}</span>
+                    <h3 className="blog-title">{blog.title}</h3>
+                    <div className="blog-meta">
+                      <span className="blog-date">{blog.date}</span>
+                      <span className="blog-author" dangerouslySetInnerHTML={{ __html: blog.author }}></span>
+                    </div>
+                    <button className="blog-link" onClick={() => openModal(blog)}>Read More <i className="fas fa-arrow-right"></i></button>
+                  </div>
                 </div>
-                <button className="blog-link" onClick={() => openModal(blog)}>Read More <i className="fas fa-arrow-right"></i></button>
-              </div>
-            </div>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
       
