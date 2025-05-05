@@ -1,0 +1,128 @@
+/* MobileResponsive.css - Additional utilities for better mobile experiences */
+
+/* Mobile-specific visibility classes */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* Mobile spacing utilities */
+.m-xs-0 { margin: 0 !important; }
+.m-xs-1 { margin: 0.25rem !important; }
+.m-xs-2 { margin: 0.5rem !important; }
+.m-xs-3 { margin: 1rem !important; }
+.m-xs-4 { margin: 1.5rem !important; }
+
+.p-xs-0 { padding: 0 !important; }
+.p-xs-1 { padding: 0.25rem !important; }
+.p-xs-2 { padding: 0.5rem !important; }
+.p-xs-3 { padding: 1rem !important; }
+.p-xs-4 { padding: 1.5rem !important; }
+
+/* Mobile text utilities */
+.text-xs-center { text-align: center !important; }
+.text-xs-left { text-align: left !important; }
+.text-xs-right { text-align: right !important; }
+
+/* Mobile touch target size improvements */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Improved tap targets for checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+/* Better scrolling for iOS */
+@supports (-webkit-touch-callout: none) {
+  .ios-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Mobile-specific media queries */
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+  
+  /* Improve form elements on mobile */
+  input, 
+  select, 
+  textarea,
+  button {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  /* Adjust container paddings for mobile */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* Full-width buttons on mobile */
+  .btn-mobile-full {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+  }
+  
+  /* Stack on mobile utility */
+  .stack-on-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Center on mobile utility */
+  .center-on-mobile {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+  /* Adjust heading sizes proportionally */
+  h1 {
+    font-size: calc(1.5rem + 1vw) !important;
+  }
+  
+  h2 {
+    font-size: calc(1.3rem + 0.6vw) !important;
+  }
+}
+
+/* Small mobile specific adjustments */
+@media (max-width: 575px) {
+  /* Extra small screen utilities */
+  .hidden-xs {
+    display: none !important;
+  }
+  
+  /* Improve button touch targets on very small screens */
+  .btn {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  /* Reduce padding on sections for small screens */
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

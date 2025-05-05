@@ -184,10 +184,19 @@
 
   .footer-logo {
     margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .footer-logo img {
+    margin: 0 auto 15px;
+  }
+  
+  .footer-social {
+    justify-content: center;
   }
 
   .footer-nav {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 }
 
@@ -198,13 +207,13 @@
 
   .footer-nav {
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 0;
   }
 
   .footer-col {
-    flex: 0 0 calc(50% - 30px);
-    max-width: calc(50% - 30px);
-    padding: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
     margin-bottom: 30px;
   }
 
@@ -216,11 +225,38 @@
   .footer-bottom p {
     margin-bottom: 15px;
   }
+  
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 575px) {
+  .footer {
+    padding: 50px 0 25px;
+  }
+  
   .footer-col {
     flex: 0 0 100%;
     max-width: 100%;
+    text-align: center;
+  }
+  
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-col ul li a:hover {
+    padding-left: 0;
+    color: #6366f1;
+  }
+  
+  /* Hide decorative shapes on smallest screens */
+  .footer .shape-1,
+  .footer .shape-2 {
+    display: none;
   }
 }

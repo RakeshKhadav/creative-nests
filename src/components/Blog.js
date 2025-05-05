@@ -122,7 +122,7 @@ const Blog = () => {
         <h3>6. Mobile-Optimized Shopping Experience</h3>
         <p>With more than half of e-commerce traffic coming from mobile devices in 2025, your site must provide an exceptional mobile shopping experience with easy navigation, appropriately sized buttons, and simplified forms.</p>
         
-        <h3>7. Related Products and Recommendations</h3>
+        <h3>7. Related Products and Recommendations</h</p>
         <p>Increase average order value by intelligently suggesting complementary or alternative products based on browsing history and purchase patterns. Well-implemented recommendation engines can significantly boost revenue while improving the shopping experience.</p>
       `
     },
@@ -234,8 +234,8 @@ const Blog = () => {
                 <span className="modal-date">{currentBlog.date}</span>
                 <span className="modal-author" dangerouslySetInnerHTML={{ __html: currentBlog.author }}></span>
               </div>
-              <button className="blog-modal-close" onClick={closeModal}>
-                <i className="fas fa-times"></i>
+              <button className="blog-modal-close" onClick={closeModal} title="Close">
+                {/* X mark is created with CSS */}
               </button>
             </div>
             <div className="blog-modal-body">

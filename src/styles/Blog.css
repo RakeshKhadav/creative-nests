@@ -157,13 +157,14 @@
 }
 
 .blog-modal-header {
-  padding: 25px 30px;
+  padding: 35px 30px 25px; /* Increased top padding from 25px to 35px */
   border-bottom: 1px solid #e5e7eb;
   position: relative;
 }
 
 .modal-title {
   font-size: 1.8rem;
+  margin-top: 12px; /* Added margin-top to push the title down */
   margin-bottom: 15px;
 }
 
@@ -196,18 +197,46 @@
 
 .blog-modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
+  top: 0px;
+  right: 0px;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
-  font-size: 1.5rem;
-  color: #9ca3af;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #111827;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .blog-modal-close:hover {
-  color: #111827;
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  transform: rotate(90deg);
+}
+
+/* X mark with CSS */
+.blog-modal-close::before,
+.blog-modal-close::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 1px;
+}
+
+.blog-modal-close::before {
+  transform: rotate(45deg);
+}
+
+.blog-modal-close::after {
+  transform: rotate(-45deg);
 }
 
 .blog-modal-body {
@@ -249,6 +278,7 @@
 @media (max-width: 991px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
   }
   
   .modal-title {
@@ -258,12 +288,26 @@
 
 @media (max-width: 767px) {
   .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns for medium mobile */
+    gap: 20px;
+  }
+  
+  .blog-card {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .blog-content {
+    padding: 20px;
+  }
+  
+  .blog-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
   }
   
   .blog-modal-content {
     max-width: 95%;
+    max-height: 85vh;
   }
   
   .blog-modal-header {
@@ -290,11 +334,56 @@
 }
 
 @media (max-width: 575px) {
+  .blog-grid {
+    grid-template-columns: 1fr; /* Single column for small mobile devices */
+    gap: 25px;
+    max-width: 450px; /* Limit max width on small screens for better readability */
+    margin: 0 auto;
+  }
+  
   .blog-image {
     height: 200px;
   }
   
   .blog-content {
-    padding: 20px;
+    padding: 18px;
+  }
+  
+  .blog-category {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+  
+  .blog-meta {
+    font-size: 0.85rem;
+  }
+  
+  /* Improve modal for small screens */
+  .blog-modal {
+    padding: 15px;
+  }
+  
+  .blog-modal-content {
+    max-width: 100%;
+    max-height: 90vh;
+  }
+  
+  .blog-modal-header {
+    padding: 15px 20px 12px;
+  }
+  
+  .blog-modal-body {
+    padding: 15px 20px;
+  }
+  
+  .blog-modal-close {
+    top: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .modal-text h3 {
+    font-size: 1.3rem;
+    margin: 20px 0 12px;
   }
 }

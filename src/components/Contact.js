@@ -97,6 +97,7 @@ const Contact = () => {
                   <p>creativenestsofficial@gmail.com</p>
                 </div>
               </div>
+              
             </div>
             
             <div className="contact-social">

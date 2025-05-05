@@ -124,7 +124,6 @@ const Portfolio = () => {
                                         <span className="portfolio-category">{item.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
                                         <h3 className="portfolio-title">{item.title}</h3>
                                         <p className="portfolio-description">{item.description}</p>
-                                        <a href="#!" className="btn btn-outline btn-sm">View Project</a>
                                     </div>
                                 </div>
                             </div>

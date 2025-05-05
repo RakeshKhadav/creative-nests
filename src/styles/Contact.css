@@ -266,7 +266,12 @@
   }
   
   .contact-info {
-    min-height: 360px;
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+  
+  .contact-info-content {
+    margin-bottom: 40px;
   }
 }
 
@@ -283,29 +288,158 @@
   .contact-info-header h3 {
     font-size: 1.5rem;
   }
+  
+  /* Contact info mobile improvements */
+  .contact-info {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "content content"
+      "social social";
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  
+  .contact-info-header {
+    grid-area: header;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .contact-info-content {
+    grid-area: content;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-info-item {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px;
+  }
+  
+  .contact-social {
+    grid-area: social;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  .contact-icon {
+    margin-right: 12px;
+    flex: 0 0 40px;
+    height: 40px;
+  }
+  
+  /* Make form elements larger touch targets on mobile */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Prevent iOS zoom on input focus */
+  }
+  
+  .form-submit .btn {
+    width: 100%; /* Full-width button on mobile */
+    padding: 14px;
+  }
 }
 
 @media (max-width: 575px) {
+  .contact-section {
+    padding: 60px 0; /* Reduce section padding on smallest screens */
+  }
+
   .contact-info-header h3 {
     font-size: 1.3rem;
   }
   
   .contact-info-header p {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  
+  /* Enhanced mobile contact info styling */
+  .contact-info {
+    padding: 25px 18px;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+  }
+  
+  .contact-info-item {
+    padding: 10px;
+    margin-bottom: 0;
   }
   
   .contact-icon {
-    flex: 0 0 40px;
-    height: 40px;
+    flex: 0 0 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+  
+  .contact-text h4 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  
+  .contact-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .contact-social {
+    padding-top: 12px;
+    gap: 15px;
   }
   
   .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+  
+  /* Form improvements for very small screens */
+  .form-group label {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
   }
   
   .form-group input,
   .form-group textarea {
     padding: 12px 15px;
+    border-radius: 8px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  /* Modify decoration circles on smallest screens for cleaner look */
+  .circle-1 {
+    width: 100px;
+    height: 100px;
+    top: -25px;
+    right: -25px;
+  }
+  
+  .circle-3 {
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+    bottom: 60%;
+  }
+  
+  .circle-2 {
+    width: 70px;
+    height: 70px;
+    bottom: 20px;
+    left: -20px;
   }
 }

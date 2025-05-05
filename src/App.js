@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import './styles/MobileResponsive.css'; // Import mobile-specific utilities
 
 // Import Components
 import PageTransition from './components/PageTransition';

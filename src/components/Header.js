@@ -93,8 +93,8 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Class for header that includes additional 'menu-open' class when mobile menu is open
-  const headerClass = `header ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`;
+  // Class for header that includes additional classes based on state
+  const headerClass = `header ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''} ${mobileMenuOpen ? 'menu-open' : ''} ${isMobile ? 'mobile-view' : ''}`;
 
   return (
     <header className={headerClass}>
@@ -116,9 +116,7 @@ const Header = () => {
               <li><a href="#blog" className="nav-link" onClick={handleMenuClick}>Blog</a></li>
               <li><a href="#contact" className="nav-link" onClick={handleMenuClick}>Contact</a></li>
             </ul>
-            <button className="sidebar-close" onClick={toggleMobileMenu}>
-              <i className="fas fa-times"></i>
-            </button>
+            <button className="sidebar-close" onClick={toggleMobileMenu} aria-label="Close menu"></button>
           </nav>
 
           <button className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`} 

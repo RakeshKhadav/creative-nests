@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/About.css';
 import aboutImage from '../assets/images/about-illustration.png';
 // import team1 from '../assets/images/team-1.jpg';
@@ -7,6 +7,22 @@ import aboutImage from '../assets/images/about-illustration.png';
 import { FaPalette, FaCode, FaChartLine, FaArrowRight } from 'react-icons/fa';
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if it's mobile view
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile(); // Check on initial load
+    
+    window.addEventListener('resize', checkIsMobile);
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+  
   const scrollToContact = (e) => {
     e.preventDefault();
     const contactSection = document.querySelector('#contact');
@@ -21,18 +37,26 @@ const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="container">
-        <div className="about-content">
-          <div className="about-image" data-animation="fade-right">
-            <div className="image-wrapper">
-              <img src={aboutImage} alt="About Creative Nests" />
+        <div className={`about-content ${isMobile ? 'mobile-layout' : ''}`}>
+          {!isMobile && (
+            <div className="about-image" data-animation="fade-right">
+              <div className="image-wrapper">
+                <img src={aboutImage} alt="About Creative Nests" />
+              </div>
             </div>
-          </div>
+          )}
           
           <div className="about-text" data-animation="fade-left">
             <h2 className="about-heading">We Create <span className="text-gradient">Digital Products</span> That Help Businesses Grow</h2>
             <p className="about-description">
               Creative Nests is a full-service digital agency specializing in crafting beautiful and functional digital experiences. We combine strategic thinking with cutting-edge technology to help businesses connect with their audiences and achieve their goals.
             </p>
+            
+            {isMobile && (
+              <div className="about-image-mobile">
+                <img src={aboutImage} alt="About Creative Nests" />
+              </div>
+            )}
             
             <div className="about-features">
               <div className="feature-item">

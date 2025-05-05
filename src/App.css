@@ -253,6 +253,19 @@ h4 {
   section {
     padding: 80px 0;
   }
+  
+  /* Improved responsive grid for tablet */
+  .row {
+    flex-wrap: wrap;
+  }
+  
+  .col-md-6 {
+    width: 50%;
+  }
+  
+  .col-md-12 {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -275,6 +288,25 @@ h4 {
   section {
     padding: 60px 0;
   }
+  
+  /* Force columns to be full width on mobile */
+  [class*="col-"] {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  /* Spacing adjustments for mobile */
+  .mb-md-0 {
+    margin-bottom: 30px !important;
+  }
+  
+  /* Improved touch targets for mobile */
+  .btn {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
@@ -292,6 +324,38 @@ h4 {
   
   .btn {
     padding: 10px 20px;
+    width: 100%; /* Make buttons full width on small mobile */
+  }
+  
+  /* Additional small mobile adjustments */
+  section {
+    padding: 50px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  /* Improve readability on small screens */
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  /* Adjustments for better touch experience */
+  input, 
+  select, 
+  textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Mobile spacing utilities */
+  .hidden-xs {
+    display: none !important;
+  }
+  
+  .text-center-xs {
+    text-align: center !important;
   }
 }
 
